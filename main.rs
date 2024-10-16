@@ -1,11 +1,15 @@
 fn main() {
-    let celsius_temp = 23.0;
-    let fahrenheit_temp = celsius_to_fahrenheit(celsius_temp);
+    let numbers = [1, 9, -2, 0, 23, 20, -7, 13, 37, 20, 56, -18, 20, 3];
+    let mut max: i32;
+    let mut min: i32;
+    let mut mean: f64;
 
-    assert_eq!(fahrenheit_temp, 73.4);
-    println!("Test passed!");
-}
+    min = *numbers.iter().min().unwrap();
+    max = *numbers.iter().max().unwrap();
+    mean = numbers.iter().sum::<i32>() as f64 / numbers.len() as f64;
 
-fn celsius_to_fahrenheit(celsius: f64) -> f64 {
-    celsius * 1.8 + 32.0
+    assert_eq!(max, 56);
+    assert_eq!(min, -18);
+    assert_eq!(mean, 12.5);
+    println!("Tests passed!");
 }
